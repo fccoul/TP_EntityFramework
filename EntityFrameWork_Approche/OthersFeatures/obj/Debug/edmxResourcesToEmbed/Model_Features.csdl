@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model_Features" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model_FeaturesContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departements" EntityType="Model_Features.Departement" />
+  </EntityContainer>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Type="Int32" Name="DeptID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Model_Features.DepartementNames" Name="DeptName" Nullable="false" />
+  </EntityType>
+  <EnumType Name="DepartementNames">
+    <Member Name="Physics" Value="0" />
+    <Member Name="Chimics" Value="1" />
+    <Member Name="Maths" Value="2" />
+    <Member Name="Informatique" Value="3" />
+    <Member Name="Economics" Value="4" />
+  </EnumType>
+</Schema>

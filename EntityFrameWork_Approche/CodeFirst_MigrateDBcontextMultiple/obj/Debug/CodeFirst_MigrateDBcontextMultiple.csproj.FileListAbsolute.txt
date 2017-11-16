@@ -1,0 +1,13 @@
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\CodeFirst_MigrateDBcontextMultiple.exe.config
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\CodeFirst_MigrateDBcontextMultiple.exe
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\CodeFirst_MigrateDBcontextMultiple.pdb
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\EntityFramework.dll
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\EntityFramework.xml
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\obj\Debug\CodeFirst_MigrateDBcontextMultiple.exe
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\obj\Debug\CodeFirst_MigrateDBcontextMultiple.pdb
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\obj\Debug\CodeFirst_MigrateDBcontextMultiple.Migrations.Initial.resources
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\obj\Debug\CodeFirst_MigrateDBcontextMultiple.csproj.GenerateResource.Cache
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\obj\Debug\CodeFirst_MigrateDBcontextMultiple.Migrations.RefreshTeacher.resources
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirst_MigrateDBcontextMultiple\obj\Debug\CodeFirst_MigrateDBcontextMultiple.Migrations.refreshImbrik.resources

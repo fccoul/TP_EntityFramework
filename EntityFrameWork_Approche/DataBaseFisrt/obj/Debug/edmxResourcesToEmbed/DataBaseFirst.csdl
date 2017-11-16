@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelFirst_DBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBFirst_DBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="ModelFirst_DBModel.Cours" />
+    <EntitySet Name="Enrollements" EntityType="ModelFirst_DBModel.Enrollement" />
+    <EntitySet Name="Students" EntityType="ModelFirst_DBModel.Student" />
+    <AssociationSet Name="FK_CourseEnrollement" Association="ModelFirst_DBModel.FK_CourseEnrollement">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentEnrollement" Association="ModelFirst_DBModel.FK_StudentEnrollement">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+    <FunctionImport Name="GetStudentGrades" EntitySet="StudentGrades" ReturnType="Collection(ModelFirst_DBModel.StudentGrade)">
+      <Parameter Name="StudentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="myViews" EntityType="ModelFirst_DBModel.myView" />
+    <EntitySet Name="StudentGrades" EntityType="ModelFirst_DBModel.StudentGrade" />
+    <FunctionImport Name="GetStudentGradesForCourse" IsComposable="true" EntitySet="StudentGrades" ReturnType="Collection(ModelFirst_DBModel.StudentGrade)">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetStudentGradesForCourse_Result">
+    <Property Name="EnrollmentID" Type="Int32" Nullable="false" />
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="Decimal" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="test_Result">
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="FisrtName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Credit" Type="Int32" Nullable="false" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Enrollements" Relationship="ModelFirst_DBModel.FK_CourseEnrollement" FromRole="Courses" ToRole="Enrollements" />
+  </EntityType>
+  <EntityType Name="Enrollement">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StudentStudentID" Type="Int32" Nullable="false" />
+    <Property Name="CourseCourseID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="ModelFirst_DBModel.FK_CourseEnrollement" FromRole="Enrollements" ToRole="Courses" />
+    <NavigationProperty Name="Student" Relationship="ModelFirst_DBModel.FK_StudentEnrollement" FromRole="Enrollements" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FisrtName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Enrollements" Relationship="ModelFirst_DBModel.FK_StudentEnrollement" FromRole="Students" ToRole="Enrollements" />
+  </EntityType>
+  <Association Name="FK_CourseEnrollement">
+    <End Role="Courses" Type="ModelFirst_DBModel.Cours" Multiplicity="1" />
+    <End Role="Enrollements" Type="ModelFirst_DBModel.Enrollement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="CourseCourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentEnrollement">
+    <End Role="Students" Type="ModelFirst_DBModel.Student" Multiplicity="1" />
+    <End Role="Enrollements" Type="ModelFirst_DBModel.Enrollement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="StudentStudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetStudentGrades_Result">
+    <Property Type="Int32" Name="EnrollmentID" Nullable="false" />
+    <Property Type="Double" Name="Grade" Nullable="true" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="StudentID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="myView">
+    <Key>
+      <PropertyRef Name="FisrtName" />
+      <PropertyRef Name="EnrollmentDate" />
+    </Key>
+    <Property Type="String" Name="FisrtName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EnrollmentDate" Nullable="false" Precision="3" />
+  </EntityType>
+  <ComplexType Name="GetStudentGradesForCourse1_Result">
+    <Property Type="Int32" Name="EnrollmentID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="StudentID" Nullable="false" />
+    <Property Type="Decimal" Name="Grade" Nullable="true" Precision="3" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetStudentGradesForCourse_Result1">
+    <Property Type="Int32" Name="EnrollmentID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="StudentID" Nullable="false" />
+    <Property Type="Decimal" Name="Grade" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetStudentGradesForCourse_Result2">
+    <Property Type="Int32" Name="EnrollmentID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="StudentID" Nullable="false" />
+    <Property Type="Decimal" Name="Grade" Nullable="true" Precision="3" Scale="2" />
+  </ComplexType>
+  <EntityType Name="StudentGrade">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Type="Int32" Name="EnrollmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="StudentID" Nullable="false" />
+    <Property Type="Decimal" Name="Grade" Nullable="false" Scale="2" Precision="3" />
+  </EntityType>
+  <ComplexType Name="GetStudentGradesForCourse_Result3">
+    <Property Type="Int32" Name="EnrollmentID" Nullable="false" />
+    <Property Type="Int32" Name="CourseID" Nullable="false" />
+    <Property Type="Int32" Name="StudentID" Nullable="false" />
+    <Property Type="Decimal" Name="Grade" Nullable="true" Precision="3" Scale="2" />
+  </ComplexType>
+</Schema>

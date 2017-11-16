@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="test_DBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbFirst_DBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="test_DBModel.Cours" />
+    <EntitySet Name="Enrollements" EntityType="test_DBModel.Enrollement" />
+    <EntitySet Name="StudentGrades" EntityType="test_DBModel.StudentGrade" />
+    <EntitySet Name="Students" EntityType="test_DBModel.Student" />
+    <EntitySet Name="myViews" EntityType="test_DBModel.myView" />
+    <AssociationSet Name="FK_CourseEnrollement" Association="test_DBModel.FK_CourseEnrollement">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentEnrollement" Association="test_DBModel.FK_StudentEnrollement">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Credit" Type="Int32" Nullable="false" />
+    <Property Name="VersionNo" Type="Binary" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Enrollements" Relationship="test_DBModel.FK_CourseEnrollement" FromRole="Courses" ToRole="Enrollements" />
+  </EntityType>
+  <EntityType Name="Enrollement">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StudentStudentID" Type="Int32" Nullable="false" />
+    <Property Name="CourseCourseID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="test_DBModel.FK_CourseEnrollement" FromRole="Enrollements" ToRole="Courses" />
+    <NavigationProperty Name="Student" Relationship="test_DBModel.FK_StudentEnrollement" FromRole="Enrollements" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="StudentGrade">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="Double" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FisrtName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Enrollements" Relationship="test_DBModel.FK_StudentEnrollement" FromRole="Students" ToRole="Enrollements" />
+  </EntityType>
+  <EntityType Name="myView">
+    <Key>
+      <PropertyRef Name="FisrtName" />
+      <PropertyRef Name="EnrollmentDate" />
+    </Key>
+    <Property Name="FisrtName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_CourseEnrollement">
+    <End Role="Courses" Type="test_DBModel.Cours" Multiplicity="1" />
+    <End Role="Enrollements" Type="test_DBModel.Enrollement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="CourseCourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentEnrollement">
+    <End Role="Students" Type="test_DBModel.Student" Multiplicity="1" />
+    <End Role="Enrollements" Type="test_DBModel.Enrollement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="StudentStudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

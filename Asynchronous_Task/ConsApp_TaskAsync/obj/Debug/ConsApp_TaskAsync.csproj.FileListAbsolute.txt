@@ -1,0 +1,6 @@
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_TaskAsync\bin\Debug\ConsApp_TaskAsync.exe.config
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_TaskAsync\bin\Debug\ConsApp_TaskAsync.exe
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_TaskAsync\bin\Debug\ConsApp_TaskAsync.pdb
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_TaskAsync\obj\Debug\ConsApp_TaskAsync.exe
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_TaskAsync\obj\Debug\ConsApp_TaskAsync.pdb
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_TaskAsync\obj\Debug\ConsApp_TaskAsync.csprojResolveAssemblyReference.cache

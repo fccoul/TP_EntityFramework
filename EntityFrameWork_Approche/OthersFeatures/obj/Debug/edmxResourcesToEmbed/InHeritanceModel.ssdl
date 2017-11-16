@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InHeritanceModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="InHeritanceModelStoreContainer">
+    <EntitySet Name="Persons" EntityType="InHeritanceModel.Store.Persons" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Persons_Teacher" EntityType="InHeritanceModel.Store.Persons_Teacher" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Persons_Eleve" EntityType="InHeritanceModel.Store.Persons_Eleve" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Teacher_inherits_Person" Association="InHeritanceModel.Store.FK_Teacher_inherits_Person">
+      <End Role="Person" EntitySet="Persons" />
+      <End Role="Teacher" EntitySet="Persons_Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Eleve_inherits_Person" Association="InHeritanceModel.Store.FK_Eleve_inherits_Person">
+      <End Role="Person" EntitySet="Persons" />
+      <End Role="Eleve" EntitySet="Persons_Eleve" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons_Teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="HireDate" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons_Eleve">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Teacher_inherits_Person">
+    <End Role="Person" Type="InHeritanceModel.Store.Persons" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Teacher" Type="InHeritanceModel.Store.Persons_Teacher" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Eleve_inherits_Person">
+    <End Role="Person" Type="InHeritanceModel.Store.Persons" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Eleve" Type="InHeritanceModel.Store.Persons_Eleve" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Eleve">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

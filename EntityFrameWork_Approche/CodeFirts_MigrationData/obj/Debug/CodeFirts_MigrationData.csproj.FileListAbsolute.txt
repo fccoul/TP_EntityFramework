@@ -1,0 +1,14 @@
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\CodeFirts_MigrationData.exe.config
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\CodeFirts_MigrationData.exe
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\CodeFirts_MigrationData.pdb
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\EntityFramework.dll
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\EntityFramework.xml
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.exe
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.pdb
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.Migrations.UniDBschema.resources
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.csproj.GenerateResource.Cache
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.Migrations.DebugMigration.resources
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.Migrations.DebugMigration_Update.resources
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFirts_MigrationData\obj\Debug\CodeFirts_MigrationData.csprojResolveAssemblyReference.cache

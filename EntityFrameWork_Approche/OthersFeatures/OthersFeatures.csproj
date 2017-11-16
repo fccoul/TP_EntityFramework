@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E3C4BD8-DE30-4FB5-BB08-42F729BA2AA1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OthersFeatures</RootNamespace>
+    <AssemblyName>OthersFeatures</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cours.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departement.cs">
+      <DependentUpon>Model_Features.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartementNames.cs">
+      <DependentUpon>Model_Features.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDM_v6.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDM_v6.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDM_v6.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDM_v6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDM_v6.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Eleve.cs">
+      <DependentUpon>InHeritanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollement.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ETUDIANT.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStudentGradesForCourse_Result.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStudentGrades_Result.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InHeritanceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InHeritanceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InHeritanceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InHeritanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InHeritanceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InHeritanceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Features.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Features.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Features.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Features.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Features.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Features.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MyLogger.cs" />
+    <Compile Include="myView.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>InHeritanceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentGrade.cs">
+      <DependentUpon>EDM_v6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher.cs">
+      <DependentUpon>InHeritanceModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model_Features.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_Features.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EDM_v6.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EDM_v6.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EDM_v6.edmx.diagram">
+      <DependentUpon>EDM_v6.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="InHeritanceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InHeritanceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="InHeritanceModel.edmx.diagram">
+      <DependentUpon>InHeritanceModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Features.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Features.edmx</DependentUpon>
+      <LastGenOutput>Model_Features.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model_Features.edmx.diagram">
+      <DependentUpon>Model_Features.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Features.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Features.edmx</DependentUpon>
+      <LastGenOutput>Model_Features.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EDM_v6.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EDM_v6.edmx</DependentUpon>
+      <LastGenOutput>EDM_v6.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EDM_v6.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EDM_v6.edmx</DependentUpon>
+      <LastGenOutput>EDM_v6.cs</LastGenOutput>
+    </Content>
+    <Content Include="InHeritanceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>InHeritanceModel.Context.cs</LastGenOutput>
+      <DependentUpon>InHeritanceModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="InHeritanceModel.edmx.sql" />
+    <Content Include="InHeritanceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>InHeritanceModel.cs</LastGenOutput>
+      <DependentUpon>InHeritanceModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model_Features.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

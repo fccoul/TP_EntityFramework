@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFirst_DBModelStoreContainer" CdmEntityContainer="DBFirst_DBEntities">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="ModelFirst_DBModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollements">
+      <EntityTypeMapping TypeName="ModelFirst_DBModel.Enrollement">
+        <MappingFragment StoreEntitySet="Enrollements">
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="StudentStudentID" ColumnName="StudentStudentID" />
+          <ScalarProperty Name="CourseCourseID" ColumnName="CourseCourseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="ModelFirst_DBModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetStudentGrades" FunctionName="ModelFirst_DBModel.Store.GetStudentGrades" />
+    <EntitySetMapping Name="myViews">
+      <EntityTypeMapping TypeName="ModelFirst_DBModel.myView">
+        <MappingFragment StoreEntitySet="myView">
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+          <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentGrades">
+      <EntityTypeMapping TypeName="ModelFirst_DBModel.StudentGrade">
+        <MappingFragment StoreEntitySet="StudentGrade">
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetStudentGradesForCourse" FunctionName="ModelFirst_DBModel.Store.GetStudentGradesForCourse" />
+  </EntityContainerMapping>
+</Mapping>

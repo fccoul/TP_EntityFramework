@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelFirst", "ModelFirst\ModelFirst.csproj", "{7FEC7035-928A-4ED2-A2BB-7CA219BF9876}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseFisrt", "DataBaseFisrt\DataBaseFisrt.csproj", "{EE6BF725-939F-45BD-ADC1-DD9E0201314F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OthersFeatures", "OthersFeatures\OthersFeatures.csproj", "{4E3C4BD8-DE30-4FB5-BB08-42F729BA2AA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFisrt", "CodeFisrt\CodeFisrt.csproj", "{6A8848C3-194D-4527-BD4E-ADDF61423DCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst_Others", "CodeFirst_Others\CodeFirst_Others.csproj", "{1C313A5E-0F06-4DDA-839E-F0F4C511F86E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirts_MigrationData", "CodeFirts_MigrationData\CodeFirts_MigrationData.csproj", "{249C1571-59E1-4F08-9E73-D601FAC123E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst_MigrateDBcontextMultiple", "CodeFirst_MigrateDBcontextMultiple\CodeFirst_MigrateDBcontextMultiple.csproj", "{73D84057-9B83-49A2-835E-29CF58097CA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FEC7035-928A-4ED2-A2BB-7CA219BF9876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEC7035-928A-4ED2-A2BB-7CA219BF9876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEC7035-928A-4ED2-A2BB-7CA219BF9876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEC7035-928A-4ED2-A2BB-7CA219BF9876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6BF725-939F-45BD-ADC1-DD9E0201314F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6BF725-939F-45BD-ADC1-DD9E0201314F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6BF725-939F-45BD-ADC1-DD9E0201314F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6BF725-939F-45BD-ADC1-DD9E0201314F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3C4BD8-DE30-4FB5-BB08-42F729BA2AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3C4BD8-DE30-4FB5-BB08-42F729BA2AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3C4BD8-DE30-4FB5-BB08-42F729BA2AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3C4BD8-DE30-4FB5-BB08-42F729BA2AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A8848C3-194D-4527-BD4E-ADDF61423DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8848C3-194D-4527-BD4E-ADDF61423DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8848C3-194D-4527-BD4E-ADDF61423DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8848C3-194D-4527-BD4E-ADDF61423DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C313A5E-0F06-4DDA-839E-F0F4C511F86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C313A5E-0F06-4DDA-839E-F0F4C511F86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C313A5E-0F06-4DDA-839E-F0F4C511F86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C313A5E-0F06-4DDA-839E-F0F4C511F86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249C1571-59E1-4F08-9E73-D601FAC123E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249C1571-59E1-4F08-9E73-D601FAC123E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249C1571-59E1-4F08-9E73-D601FAC123E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249C1571-59E1-4F08-9E73-D601FAC123E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D84057-9B83-49A2-835E-29CF58097CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D84057-9B83-49A2-835E-29CF58097CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D84057-9B83-49A2-835E-29CF58097CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D84057-9B83-49A2-835E-29CF58097CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="test_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="test_DBModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="test_DBModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enrollements" EntityType="test_DBModel.Store.Enrollements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentGrade" EntityType="test_DBModel.Store.StudentGrade" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Students" EntityType="test_DBModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="myView" EntityType="test_DBModel.Store.myView" store:Type="Views" store:Schema="dbo" store:Name="myView">
+      <DefiningQuery>SELECT 
+      [myView].[FisrtName] AS [FisrtName], 
+      [myView].[EnrollmentDate] AS [EnrollmentDate]
+      FROM [dbo].[myView] AS [myView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CourseEnrollement" Association="test_DBModel.Store.FK_CourseEnrollement">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentEnrollement" Association="test_DBModel.Store.FK_StudentEnrollement">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Enrollements">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentStudentID" Type="int" Nullable="false" />
+    <Property Name="CourseCourseID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentGrade">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="float" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « ModelFirst_DB.dbo.myView » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+  <EntityType Name="myView">
+    <Key>
+      <PropertyRef Name="FisrtName" />
+      <PropertyRef Name="EnrollmentDate" />
+    </Key>
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CourseEnrollement">
+    <End Role="Courses" Type="test_DBModel.Store.Courses" Multiplicity="1" />
+    <End Role="Enrollements" Type="test_DBModel.Store.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="CourseCourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentEnrollement">
+    <End Role="Students" Type="test_DBModel.Store.Students" Multiplicity="1" />
+    <End Role="Enrollements" Type="test_DBModel.Store.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="StudentStudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

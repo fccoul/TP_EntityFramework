@@ -1,0 +1,10 @@
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\CodeFisrt.exe.config
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\obj\Debug\CodeFisrt.csprojResolveAssemblyReference.cache
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\CodeFisrt.exe
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\CodeFisrt.pdb
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\EntityFramework.dll
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\EntityFramework.xml
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\obj\Debug\CodeFisrt.exe
+C:\Users\fhcoulibaly\Documents\Visual Studio 2013\Projects\EntityFrameWork_Approche\CodeFisrt\obj\Debug\CodeFisrt.pdb

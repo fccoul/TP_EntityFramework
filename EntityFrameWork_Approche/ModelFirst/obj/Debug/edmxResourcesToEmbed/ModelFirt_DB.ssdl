@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelFirt_DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelFirt_DBStoreContainer">
+    <EntitySet Name="Students" EntityType="ModelFirt_DB.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enrollements" EntityType="ModelFirt_DB.Store.Enrollements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Courses" EntityType="ModelFirt_DB.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="StudentEnrollement" Association="ModelFirt_DB.Store.StudentEnrollement">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollement" EntitySet="Enrollements" />
+    </AssociationSet>
+    <AssociationSet Name="CourseEnrollement" Association="ModelFirt_DB.Store.CourseEnrollement">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Enrollement" EntitySet="Enrollements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrollements">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentStudentID" Type="int" Nullable="false" />
+    <Property Name="CourseCourseID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="StudentEnrollement">
+    <End Role="Student" Type="ModelFirt_DB.Store.Students" Multiplicity="1" />
+    <End Role="Enrollement" Type="ModelFirt_DB.Store.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Enrollement">
+        <PropertyRef Name="StudentStudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseEnrollement">
+    <End Role="Course" Type="ModelFirt_DB.Store.Courses" Multiplicity="1" />
+    <End Role="Enrollement" Type="ModelFirt_DB.Store.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Enrollement">
+        <PropertyRef Name="CourseCourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelFirt_DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelFirt_DBStoreContainer">
+    <EntitySet Name="Students" EntityType="ModelFirt_DB.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enrollements" EntityType="ModelFirt_DB.Store.Enrollements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Courses" EntityType="ModelFirt_DB.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="StudentEnrollement" Association="ModelFirt_DB.Store.StudentEnrollement">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollement" EntitySet="Enrollements" />
+    </AssociationSet>
+    <AssociationSet Name="CourseEnrollement" Association="ModelFirt_DB.Store.CourseEnrollement">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Enrollement" EntitySet="Enrollements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrollements">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentStudentID" Type="int" Nullable="false" />
+    <Property Name="CourseCourseID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="StudentEnrollement">
+    <End Role="Student" Type="ModelFirt_DB.Store.Students" Multiplicity="1" />
+    <End Role="Enrollement" Type="ModelFirt_DB.Store.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Enrollement">
+        <PropertyRef Name="StudentStudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseEnrollement">
+    <End Role="Course" Type="ModelFirt_DB.Store.Courses" Multiplicity="1" />
+    <End Role="Enrollement" Type="ModelFirt_DB.Store.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Enrollement">
+        <PropertyRef Name="CourseCourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelFirt_DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelFirt_DBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Students" EntityType="ModelFirt_DB.Student" />
+          <EntitySet Name="Enrollements" EntityType="ModelFirt_DB.Enrollement" />
+          <EntitySet Name="Courses" EntityType="ModelFirt_DB.Course" />
+          <AssociationSet Name="StudentEnrollement" Association="ModelFirt_DB.StudentEnrollement">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Enrollement" EntitySet="Enrollements" />
+          </AssociationSet>
+          <AssociationSet Name="CourseEnrollement" Association="ModelFirt_DB.CourseEnrollement">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Enrollement" EntitySet="Enrollements" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Type="Int32" Name="StudentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FisrtName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="DateTime" Name="EnrollmentDate" Nullable="false" />
+          <NavigationProperty Name="Enrollements" Relationship="ModelFirt_DB.StudentEnrollement" FromRole="Student" ToRole="Enrollement" />
+        </EntityType>
+        <EntityType Name="Enrollement">
+          <Key>
+            <PropertyRef Name="EnrollmentID" />
+          </Key>
+          <Property Type="Int32" Name="EnrollmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="Int32" Name="StudentID" Nullable="false" />
+          <Property Type="String" Name="Grade" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="ModelFirt_DB.StudentEnrollement" FromRole="Enrollement" ToRole="Student" />
+          <Property Type="Int32" Name="StudentStudentID" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="ModelFirt_DB.CourseEnrollement" FromRole="Enrollement" ToRole="Course" />
+          <Property Type="Int32" Name="CourseCourseID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Type="Int32" Name="CourseID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="Int32" Name="Credit" Nullable="false" />
+          <NavigationProperty Name="Enrollements" Relationship="ModelFirt_DB.CourseEnrollement" FromRole="Course" ToRole="Enrollement" />
+        </EntityType>
+        <Association Name="StudentEnrollement">
+          <End Type="ModelFirt_DB.Student" Role="Student" Multiplicity="1" />
+          <End Type="ModelFirt_DB.Enrollement" Role="Enrollement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Enrollement">
+              <PropertyRef Name="StudentStudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CourseEnrollement">
+          <End Type="ModelFirt_DB.Course" Role="Course" Multiplicity="1" />
+          <End Type="ModelFirt_DB.Enrollement" Role="Enrollement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Enrollement">
+              <PropertyRef Name="CourseCourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFirt_DBStoreContainer" CdmEntityContainer="ModelFirt_DBContext">
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirt_DB.Student)">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollements">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirt_DB.Enrollement)">
+        <MappingFragment StoreEntitySet="Enrollements">
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="StudentStudentID" ColumnName="StudentStudentID" />
+          <ScalarProperty Name="CourseCourseID" ColumnName="CourseCourseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirt_DB.Course)">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

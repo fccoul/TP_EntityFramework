@@ -1,0 +1,6 @@
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_Tasks\bin\Debug\ConsApp_Tasks.exe.config
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_Tasks\bin\Debug\ConsApp_Tasks.exe
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_Tasks\bin\Debug\ConsApp_Tasks.pdb
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_Tasks\obj\Debug\ConsApp_Tasks.exe
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_Tasks\obj\Debug\ConsApp_Tasks.pdb
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\ConsApp_Tasks\obj\Debug\ConsApp_Tasks.csprojResolveAssemblyReference.cache

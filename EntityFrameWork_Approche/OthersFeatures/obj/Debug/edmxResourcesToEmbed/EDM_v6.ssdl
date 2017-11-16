@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelFirst_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+    <Property Name="VersionNo" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="Location" Type="geography" />
+  </EntityType>
+  <EntityType Name="Enrollements">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentStudentID" Type="int" Nullable="false" />
+    <Property Name="CourseCourseID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ETUDIANT">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentGrade">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="decimal" Precision="3" Scale="2" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ModelFirst_DB.dbo.myView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="myView">
+    <Key>
+      <PropertyRef Name="FisrtName" />
+      <PropertyRef Name="EnrollmentDate" />
+    </Key>
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CourseEnrollement">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="Enrollements" Type="Self.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="CourseCourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentEnrollement">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Enrollements" Type="Self.Enrollements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Enrollements">
+        <PropertyRef Name="StudentStudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetStudentGrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StudentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStudentGradesForCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="EnrollmentID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="Grade" Type="decimal" Precision="3" Scale="2" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="ModelFirst_DBModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enrollements" EntityType="Self.Enrollements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ETUDIANT" EntityType="Self.ETUDIANT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentGrade" EntityType="Self.StudentGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="myView" EntityType="Self.myView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [myView].[FisrtName] AS [FisrtName], 
+    [myView].[EnrollmentDate] AS [EnrollmentDate]
+    FROM [dbo].[myView] AS [myView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CourseEnrollement" Association="Self.FK_CourseEnrollement">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentEnrollement" Association="Self.FK_StudentEnrollement">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrollements" EntitySet="Enrollements" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,9 @@
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\bin\Debug\TaskAsynchronous.exe.config
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\bin\Debug\TaskAsynchronous.exe
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\bin\Debug\TaskAsynchronous.pdb
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\obj\Debug\TaskAsynchronous.csprojResolveAssemblyReference.cache
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\obj\Debug\TaskAsynchronous.Form1.resources
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\obj\Debug\TaskAsynchronous.Properties.Resources.resources
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\obj\Debug\TaskAsynchronous.csproj.GenerateResource.Cache
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\obj\Debug\TaskAsynchronous.exe
+c:\users\fhcoulibaly\documents\visual studio 2013\Projects\OtherDiscover\TaskAsynchronous\obj\Debug\TaskAsynchronous.pdb

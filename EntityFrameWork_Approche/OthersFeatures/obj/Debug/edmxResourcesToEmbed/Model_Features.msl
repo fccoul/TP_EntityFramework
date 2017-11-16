@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model_FeaturesStoreContainer" CdmEntityContainer="Model_FeaturesContext">
+    <EntitySetMapping Name="Departements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model_Features.Departement)">
+        <MappingFragment StoreEntitySet="Departements">
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

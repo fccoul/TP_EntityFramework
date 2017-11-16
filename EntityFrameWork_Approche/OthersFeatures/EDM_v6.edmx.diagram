@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b6454a2b86e94defa5e5f71e2ee6f920" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="ModelFirst_DBModel.Cours" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst_DBModel.Enrollement" Width="2.125" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelFirst_DBModel.StudentGrade" Width="1.5" PointX="1.75" PointY="3.875" IsExpanded="true" FillColor="Red" />
+        <EntityTypeShape EntityType="ModelFirst_DBModel.Student" Width="1.5" PointX="7.125" PointY="1.125" IsExpanded="true" FillColor="Green" />
+        <EntityTypeShape EntityType="ModelFirst_DBModel.myView" Width="1.5" PointX="4.5" PointY="3.5" IsExpanded="true" FillColor="Red" />
+        <AssociationConnector Association="ModelFirst_DBModel.FK_CourseEnrollement" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelFirst_DBModel.FK_StudentEnrollement" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ModelFirst_DBModel.ETUDIANT" Width="1.5" PointX="9.5" PointY="3.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

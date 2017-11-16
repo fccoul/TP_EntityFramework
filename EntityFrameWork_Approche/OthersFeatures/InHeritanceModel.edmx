@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InHeritanceModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="InHeritanceModelStoreContainer">
+    <EntitySet Name="Persons" EntityType="InHeritanceModel.Store.Persons" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Persons_Teacher" EntityType="InHeritanceModel.Store.Persons_Teacher" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Persons_Eleve" EntityType="InHeritanceModel.Store.Persons_Eleve" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Teacher_inherits_Person" Association="InHeritanceModel.Store.FK_Teacher_inherits_Person">
+      <End Role="Person" EntitySet="Persons" />
+      <End Role="Teacher" EntitySet="Persons_Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Eleve_inherits_Person" Association="InHeritanceModel.Store.FK_Eleve_inherits_Person">
+      <End Role="Person" EntitySet="Persons" />
+      <End Role="Eleve" EntitySet="Persons_Eleve" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FisrtName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons_Teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="HireDate" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons_Eleve">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="EnrollmentDate" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Teacher_inherits_Person">
+    <End Role="Person" Type="InHeritanceModel.Store.Persons" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Teacher" Type="InHeritanceModel.Store.Persons_Teacher" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Eleve_inherits_Person">
+    <End Role="Person" Type="InHeritanceModel.Store.Persons" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Eleve" Type="InHeritanceModel.Store.Persons_Eleve" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Eleve">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="InHeritanceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="InHeritanceModelContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Persons" EntityType="InHeritanceModel.Person" />
+          </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FisrtName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher" BaseType="InHeritanceModel.Person" >
+          <Property Name="HireDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eleve" BaseType="InHeritanceModel.Person">
+          <Property Name="EnrollmentDate" Nullable="false" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InHeritanceModelStoreContainer" CdmEntityContainer="InHeritanceModelContext">
+    <EntitySetMapping Name="Persons">
+      <EntityTypeMapping TypeName="IsTypeOf(InHeritanceModel.Person)">
+        <MappingFragment StoreEntitySet="Persons">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InHeritanceModel.Teacher)">
+        <MappingFragment StoreEntitySet="Persons_Teacher">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InHeritanceModel.Eleve)">
+        <MappingFragment StoreEntitySet="Persons_Eleve">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
